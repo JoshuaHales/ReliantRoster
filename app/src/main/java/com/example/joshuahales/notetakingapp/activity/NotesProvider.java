@@ -1,4 +1,4 @@
-package com.example.joshuahales.notetakingapp;
+package com.example.joshuahales.notetakingapp.activity;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

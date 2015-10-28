@@ -1,4 +1,4 @@
-package com.example.joshuahales.notetakingapp;
+package com.example.joshuahales.notetakingapp.activity;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -19,15 +19,17 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.joshuahales.notetakingapp.R;
+
 //Loader manager will make sure we can run the database loader in a background thread
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class NotifcationActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final int EDITOR_REQUEST_CODE = 1001;
     private CursorAdapter cursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_notifcation);
 
         //Use a simple or custom cursor adapter to display data
         //Passes data from cursor in the database right into the layout
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, EditorActivity.class);
+                Intent intent = new Intent(NotifcationActivity.this, EditorActivity.class);
                 Uri uri = Uri.parse(NotesProvider.CONTENT_URI + "/" + id);
                 intent.putExtra(NotesProvider.CONTENT_ITEM_TYPE, uri);
                 startActivityForResult(intent, EDITOR_REQUEST_CODE);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         values.put(DBOpenHelper.NOTE_TEXT, noteText);
         Uri noteUri = getContentResolver().insert(NotesProvider.CONTENT_URI, values);
 
-        //Log.d("MainActivity", "Inserted note " + noteUri.getLastPathSegment());
+        //Log.d("NotifcationActivity", "Inserted note " + noteUri.getLastPathSegment());
     }
 
     @Override
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                             //Insert Data management code here
                             getContentResolver().delete(NotesProvider.CONTENT_URI, null, null);
                             restartLoader();
-                            Toast.makeText(MainActivity.this,
+                            Toast.makeText(NotifcationActivity.this,
                                     getString(R.string.all_deleted),
                                     Toast.LENGTH_SHORT).show();
                         }

@@ -1,4 +1,4 @@
-package com.example.joshuahales.notetakingapp;
+package com.example.joshuahales.notetakingapp.activity;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
+
+import com.example.joshuahales.notetakingapp.R;
 
 
 public class NotesCursorAdapter  extends CursorAdapter{

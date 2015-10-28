@@ -1,4 +1,4 @@
-package com.example.joshuahales.notetakingapp;
+package com.example.joshuahales.notetakingapp.activity;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.joshuahales.notetakingapp.R;
 
 public class EditorActivity extends AppCompatActivity {
 
